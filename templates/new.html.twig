@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block formAdd %}
+        <div class="container-fluid">
+            <div class="row" style="height: 100px; background-color: ; padding: 20px;">
+                <h1>Créer</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                {% if (form is defined ) %}
+                <div class="col-md-4">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+            {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+            {% else %}
+              <div class="alert col alert-danger" role="alert">
+                <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+              </div>
+            {% endif %}
+
+        </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+/*        $(function () {
+            $.ajax(function () {
+
+            })
+        })*/
+    </script>
+{% endblock %}

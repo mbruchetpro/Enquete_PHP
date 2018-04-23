@@ -1,0 +1,21 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+default:
+  path: /
+  controller: App\Controller\c_index::affichQuestionnaires
+
+questionnaire:
+  path: /creer_Questionnaire
+  controller: App\Controller\c_questionnaire::new
+
+success:
+  path: /success
+  controller : App\Controller\c_Success::success
+
+questionnaire-edit:
+  path: /admin/questionnaire/edit/{parentId}
+  controller: App\Controller\c_questionnaire::questionnaireEdit
+  requirements:
+      parentId: '\d+'

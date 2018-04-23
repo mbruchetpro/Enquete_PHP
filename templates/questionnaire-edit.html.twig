@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block formAdd %}
+    <div class="container-fluid">
+        <div class="row" style="height: 100px; background-color: ; padding: 20px;">
+            <h1>Edit - {{title}} </h1>
+        </div>
+
+
+        <div class="row">
+                <div class="col-md-5 offset-md-1">
+                    <h2>Question</h2>
+                    {{ form_start(questionForm, { 'attr': {'autocomplete': 'off'} }) }}
+                    {{ form_widget(questionForm) }}
+                    {{ form_widget(questionForm)}}
+                    {{ form_end(questionForm) }}
+                </div>
+                <div class="col-md-4 offset-md-1 form">
+                    <h2>Question associée</h2>
+                    <table class="table table-striped">
+
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col"></th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Type question</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for q in question %}
+                        <tr>
+                            <td>
+                                {{ q.id }}
+                            </td>
+                            <td></td>
+                            <td>
+                                {{ q.nom }}
+
+                            </td>
+                            <td>
+                                {{ q.typeQ }}
+                            </td>
+                            <td>
+                                {#<a href="/admin/questionnaire/edit/">#}
+
+                                    {#<button type="button" class="btn btn-info">#}
+                                        {#Modifier#}
+                                    {#</button>#}
+                                {#</a>#}
+                                {#<a href="/admin/questionnaire/edit/">#}
+
+                                    {#<button type="button" class="btn btn-warning">#}
+                                        {#Supprimer#}
+                                    {#</button>#}
+                                {#</a>#}
+                            </td>
+                        </tr>
+                        {%endfor%}
+                        </tbody>
+
+                    </table>
+                </div>
+        </div>
+    </div>
+{% endblock %}
+

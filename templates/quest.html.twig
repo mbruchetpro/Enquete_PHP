@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block questionnaires %}
+
+    <div class="container-fluid">
+        <div class="row" style="height: 100px; padding: 20px;">
+            <div class="col-12 text-center">
+                <h1>Questionnaire2000</h1>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 20px;">
+            <div class="col-1"></div>
+
+            <div class="col-5">
+                <h2>Liste des questionnaire : </h2>
+                <br/>
+                    <div class="row-fluid">
+
+                        {% for q in quest %}
+                            <table class="table table-striped" >
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col"></th>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col"></th>
+                                        <th scope="col">Action</th>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            {{ q.id }}
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <a href="/admin/questionnaire/edit/{{ q.Id }}">
+                                                {{ q.name }}
+                                            </a>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <a href="/admin/questionnaire/edit/{{ q.Id }}">
+
+                                                <button type="button" class="btn btn-info">
+                                                    Modifier
+                                                </button>
+                                            </a>
+                                            <a href="/admin/questionnaire/edit/{{ q.Id }}">
+
+                                                <button type="button" class="btn btn-warning">
+                                                    Supprimer
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+                        {% endfor %}
+                    </div>
+                <div class="row">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+                        <a href="/creer_Questionnaire" class="btn btn-info btn-block">Ajouter</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5">
+                <h2>Créer un xml</h2>
+                <div class="row">
+                    <div class="col-md-2"></div>
+
+                    <div class="form-group col-md-8">
+                        <label for="inputState">Questionnaire</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Choisissez un questionnaire...</option>
+                            {% for q in quest %}
+                                <option value="{{ q.id }}">{{ q.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <button type="button" class="btn btn-primary btn-block"> Créer XML</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
