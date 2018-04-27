@@ -2,67 +2,72 @@
 
 {% block formAdd %}
     <div class="container-fluid">
-        <div class="row" style="height: 100px; background-color: ; padding: 20px;">
+        <div class="row" style="height: 80px; background-color: #b0bec5 ; padding: 20px;">
+            <div class="col-md-5"></div>
             <h1>Edit - {{title}} </h1>
         </div>
 
+        <br>
 
         <div class="row">
-                <div class="col-md-5 offset-md-1">
-                    <h2>Question</h2>
-                    {{ form_start(questionForm, { 'attr': {'autocomplete': 'off'} }) }}
-                    {{ form_widget(questionForm) }}
-                    {{ form_widget(questionForm)}}
-                    {{ form_end(questionForm) }}
-                </div>
-                <div class="col-md-4 offset-md-1 form">
-                    <h2>Question associée</h2>
-                    <table class="table table-striped">
+            <div class="col-md-5 offset-md-1">
+                <h2>Question</h2>
+                {{ form_start(questionForm, { 'attr': {'autocomplete': 'off'} }) }}
+                {{ form_widget(questionForm) }}
+                {{ form_widget(questionForm)}}
+                {{ form_end(questionForm) }}
+            </div>
 
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col"></th>
-                                <th scope="col">Nom</th>
-                                <th scope="col">Type question</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                        {% for q in question %}
+            <div class="col-md-4 offset-md-1 form">
+                <h2>Question associée</h2>
+                {% if question is not empty %}
+                <table class="table table-striped">
+                    <thead>
                         <tr>
-                            <td>
-                                {{ q.id }}
-                            </td>
-                            <td></td>
-                            <td>
-                                {{ q.nom }}
-
-                            </td>
-                            <td>
-                                {{ q.typeQ }}
-                            </td>
-                            <td>
-                                {#<a href="/admin/questionnaire/edit/">#}
-
-                                    {#<button type="button" class="btn btn-info">#}
-                                        {#Modifier#}
-                                    {#</button>#}
-                                {#</a>#}
-                                {#<a href="/admin/questionnaire/edit/">#}
-
-                                    {#<button type="button" class="btn btn-warning">#}
-                                        {#Supprimer#}
-                                    {#</button>#}
-                                {#</a>#}
-                            </td>
+                            <th scope="col">#</th>
+                            <th scope="col"></th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Type question</th>
+                            {#<th scope="col">Action</th>#}
                         </tr>
-                        {%endfor%}
-                        </tbody>
+                    </thead>
+                    <tbody>
+                        {% for q in question %}
+                            <tr>
+                                <td>
+                                    {{ q.id }}
+                                </td>
+                                <td></td>
+                                <td>
+                                    {{ q.nom }}
 
-                    </table>
-                </div>
+                                </td>
+                                <td>
+                                    {{ q.typeQ }}
+                                </td>
+                                {#<td>#}
+                                    {#<a href="/admin/questionnaire/edit/{{ q.Id }}">#}
+                                        {#<button type="button" class="btn btn-warning">#}
+                                            {#<img class="mb-2" src="https://image.flaticon.com/icons/svg/126/126468.svg" alt="" width="20" height="20">#}
+                                        {#</button>#}
+                                    {#</a>#}
+                                {#</td>#}
+                            </tr>
+                        {%endfor%}
+                        {% else %}
+                            <tbody>
+                                <br>
+                                <tr>
+                                    <div class="alert alert-warning text-center" role="alert">
+                                        Aucune question n'a encore été saisi veuillez en saisir une.
+                                    </div>
+                                </tr>
+                            </tbody>
+                        {% endif %}
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     </div>
 {% endblock %}

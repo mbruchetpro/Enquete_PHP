@@ -1,43 +1,37 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}PPE - Questionnaire{% endblock %}</title>
-    {% block stylesheets %}
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-    {% endblock %}
-</head>
 
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}PPE - Questionnaire{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+        {% endblock %}
+        <script
+                src="http://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    </head>
 
     <body>
         {% block sidebar  %}
-        <div id="sidebar">
+            <div class="row" id="sidebar"   style="background-color: #808e95;">
 
-                {#***************** Barre de navigation gerer par bootstrap : ***************** #}
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="/">
-                        Questionnaire2000
-                    </a>
+                    {#***************** Barre de navigation gerer par bootstrap : ***************** #}
+                    <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #808e95;">
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                        </ul>
+                        <a class="navbar-brand" href="/">
+                            <img class="mb-2" src="https://image.flaticon.com/icons/svg/25/25694.svg" alt="" width="24" height="24">
+                            Enquête PHP
+                        </a>
+                    </nav>
 
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="text" placeholder="Pseudo">
-                                <input class="form-control mr-sm-2" type="password" placeholder="Mot de passe">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connection</button>
-                        </form>
-                    </div>
-                </nav>
-
-        </div>
+            </div>
         {% endblock %}
-
-        {#***************** Affichage des différents contenu renvoyés par les controlleurs. : ***************** #}
 
         <div id="content">
             {% block questionnaires %}
@@ -47,15 +41,14 @@
             {% endblock %}
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        {% block javascripts %}{% endblock %}
     </body>
-    <footer class="pt-4 my-md-5 pt-md-5 border-top" style="position: absolute; bottom: 0; width: 100%; line-height: 60px;">
+
+    <footer class="pt-4 my-md-5 pt-md-5 border-top" style=" bottom: 0; width: 100%; height: 10px; line-height: 60px;">
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-4 col-md">
                 <img class="mb-2" src="https://image.flaticon.com/icons/svg/761/761731.svg" alt="" width="24" height="24">
-                    Développé par Maxime Bruchet ~ mbruchet.sio@gmail.com
+                     ~ mbruchet.sio@gmail.com
             </div>
             <div class="col-4 col-md">
                 <a href="https://github.com/mbruchetpro">
@@ -72,8 +65,26 @@
         </div>
         <div class="row text-center">
             <div class="col-md-12">
-                <small class="d-block mb-3 text-muted">© 2017-2018</small>
+                <small class="d-block mb-3 text-muted">© Développé par Maxime Bruchet 2017-2018</small>
             </div>
         </div>
     </footer>
+
+    <script>
+        $("#toXML").click(function() {
+            var parentid = document.getElementById('inputState').value;
+
+            if (null !== parentid)
+            {
+                $.ajax({
+                    url : '/admin/xml/'+parentid,
+                    dataType: 'xml',
+                    success: function (data) {
+                      window.location.replace('/');
+                    }
+                });
+            }
+        });
+    </script>
+
 </html>

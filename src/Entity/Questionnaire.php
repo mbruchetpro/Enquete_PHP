@@ -19,7 +19,7 @@ class Questionnaire
     // add your own fields
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Question", mappedBy="questionnaire_id")
+     * @ORM\OneToMany(targetEntity="App\Entity\Question", mappedBy="questionnaire")
      */
     private $questions;
 
@@ -95,5 +95,19 @@ class Questionnaire
         return $this->description;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getQuestions()
+    {
+        return $this->questions;
+    }
 
+    /**
+     * @param mixed $questions
+     */
+    public function setQuestions($questions): void
+    {
+        $this->questions = $questions;
+    }
 }

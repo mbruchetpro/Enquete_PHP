@@ -1,0 +1,23 @@
+{% if files is not empty %}
+    <br>
+    <div id="table-file">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Path</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for file in files %}
+                <tr>
+                    <td>{{ file.name }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{path('download',{'file':file.name})}}">download</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}

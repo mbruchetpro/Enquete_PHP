@@ -3,22 +3,39 @@
 {% block questionnaires %}
 
     <div class="container-fluid">
-        <div class="row" style="height: 100px; padding: 20px;">
+
+        <div class="row" style="height: 80px; background-color: #b0bec5 ; padding: 20px;">
             <div class="col-12 text-center">
-                <h1>Questionnaire2000</h1>
+                <h1>Enquête PHP</h1>
             </div>
         </div>
-        <div class="row" style="padding-top: 20px;">
-            <div class="col-1"></div>
 
-            <div class="col-5">
+        <br>
+
+        {% if info is defined %}
+            <div class="row-fluid text-center">
+
+                <div class="alert alert-warning" role="alert">
+                    {{ info.message }}
+                </div>
+
+            </div>
+        {% endif %}
+
+        <br>
+
+        <div class="row" style="padding-top: 20px;">
+
+            <div class="col-md-1"></div>
+
+            <div class="col-md-5">
+
                 <h2>Liste des questionnaire : </h2>
                 <br/>
-                    <div class="row-fluid">
 
-                        {% for q in quest %}
+                    {% if (quest is not empty) %}
+                        <div class="row-fluid">
                             <table class="table table-striped" >
-
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -29,8 +46,8 @@
 
                                     </tr>
                                 </thead>
-
                                 <tbody>
+                                {% for q in quest %}
                                     <tr>
                                         <td>
                                             {{ q.id }}
@@ -44,58 +61,84 @@
                                         <td></td>
                                         <td>
                                             <a href="/admin/questionnaire/edit/{{ q.Id }}">
-
                                                 <button type="button" class="btn btn-info">
-                                                    Modifier
+                                                    <img class="mb-2" src="https://image.flaticon.com/icons/svg/61/61456.svg" alt="" width="20" height="20">
                                                 </button>
                                             </a>
-                                            <a href="/admin/questionnaire/edit/{{ q.Id }}">
-
+                                            <a href="/admin/questionnaire/delete/{{ q.Id }}">
                                                 <button type="button" class="btn btn-warning">
-                                                    Supprimer
+                                                    <img class="mb-2" src="https://image.flaticon.com/icons/svg/126/126468.svg" alt="" width="20" height="20">
                                                 </button>
                                             </a>
                                         </td>
                                     </tr>
+                                {% endfor %}
                                 </tbody>
-
                             </table>
-
-                        {% endfor %}
-                    </div>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-danger" role="alert">
+                                Aucun questionnaire n'a été crée. Veuillez ajouter un questionnaire afin de les
+                            voir s'afficher ici.
+                        </div>
+                    {% endif %}
                 <div class="row">
-                    <div class="col-md-10"></div>
-                    <div class="col-md-2">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
                         <a href="/creer_Questionnaire" class="btn btn-info btn-block">Ajouter</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-5">
+            <div class="col-md-6">
                 <h2>Créer un xml</h2>
-                <div class="row">
-                    <div class="col-md-2"></div>
+                <br/>
+                {% if quest is not empty %}
+                    <div class="row">
 
-                    <div class="form-group col-md-8">
-                        <label for="inputState">Questionnaire</label>
-                        <select id="inputState" class="form-control">
-                            <option selected>Choisissez un questionnaire...</option>
-                            {% for q in quest %}
-                                <option value="{{ q.id }}">{{ q.name}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <button type="button" class="btn btn-primary btn-block"> Créer XML</button>
-                    </div>
-                </div>
+                        <div class="form-group col-md-6">
+                            <select id="inputState" class="form-control">
+                                <option value="" selected>Choisissez un questionnaire...</option>
+                                {% for q in quest %}
+                                    <option value="{{ q.id }}" >{{ q.name}}</option>
+                                {% endfor %}
+                            </select>
 
+                        </div>
+
+                        <div class="col-md-3">
+                            <button type="button" id="toXML" class="btn btn-info btn-block test"> Créer XML</button>
+                        </div>
+
+                    </div>
+                {% else %}
+                    <div class="alert alert-danger" role="alert">
+                        Aucun questionnaire n'a été trouvé.
+                    </div>
+                {% endif %}
+
+
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <h1>Fichier Xml de disponible</h1>
+            </div>
+        </div>
+
+        <div class="row align-center">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 xml-list" >
+                {% include 'xml-list.html.twig' %}
             </div>
 
         </div>
 
     </div>
 {% endblock %}
+

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<questionnaire>
+  <id>15</id>
+  <name>Recrutement</name>
+  <displayName>Test 1 pour recrutement salari&#xE9;s</displayName>
+  <description/>
+  <questions>
+    <id>1</id>
+    <rang>042946</rang>
+    <typeQ>list</typeQ>
+    <nom>Dipl&#xF4;me</nom>
+    <texte>Quel est votre plus haut dipl&#xF4;me ?</texte>
+    <response1>Baccalaur&#xE9;at&#xD;</response1>
+    <response2>Bac +2 (DUT/BTS)&#xD;</response2>
+    <response3>Bac +3 (Licence)&#xD;</response3>
+    <response4>Bac +4 (Master 1)&#xD;</response4>
+    <response5>Bac +5 (Master 2)</response5>
+    <defaut>1</defaut>
+  </questions>
+  <questions>
+    <id>2</id>
+    <rang>050527</rang>
+    <typeQ>text</typeQ>
+    <nom>Qualit&#xE9;</nom>
+    <texte>Quelle est votre principale qualit&#xE9; ?</texte>
+    <response1>Curieux</response1>
+    <response2/>
+    <response3/>
+    <response4/>
+    <response5/>
+    <defaut>1</defaut>
+  </questions>
+  <questions>
+    <id>3</id>
+    <rang>050636</rang>
+    <typeQ>combo</typeQ>
+    <nom>Int&#xE9;r&#xEA;t</nom>
+    <texte>Quels sont vos centres d'int&#xE9;r&#xEA;t ?</texte>
+    <response1>Sport&#xD;</response1>
+    <response2>Musique&#xD;</response2>
+    <response3>Cin&#xE9;ma&#xD;</response3>
+    <response4>Lecture&#xD;</response4>
+    <response5>Informatique</response5>
+    <defaut>1</defaut>
+  </questions>
+</questionnaire>

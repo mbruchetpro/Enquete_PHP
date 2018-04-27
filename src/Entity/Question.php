@@ -24,7 +24,7 @@ class Question
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Questionnaire", inversedBy="questions")
-     * @ORM\JoinColumn(name="questionnaire_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="questionnaire_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $questionnaire;
 
@@ -250,14 +250,6 @@ class Question
     public function setDefaut($defaut): void
     {
         $this->defaut = $defaut;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getQuestionnaire()
-    {
-        return $this->questionnaire;
     }
 
     /**

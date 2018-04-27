@@ -1,21 +1,42 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+#
+#
+#           Route du projet Enquête PHP
+#
+#
 
+#   Route par défault, elle correspont à la page de démarrage.
 default:
   path: /
   controller: App\Controller\c_index::affichQuestionnaires
 
+#   Route questionnaire, elle correspont à la création d'un questionnaire.
 questionnaire:
   path: /creer_Questionnaire
   controller: App\Controller\c_questionnaire::new
 
-success:
-  path: /success
-  controller : App\Controller\c_Success::success
-
+#   Route par défault, elle correspont à l'édition du questionnaire : lui attribuer des questions.
 questionnaire-edit:
   path: /admin/questionnaire/edit/{parentId}
   controller: App\Controller\c_questionnaire::questionnaireEdit
   requirements:
       parentId: '\d+'
+
+delete-questionnaire:
+  path: /admin/questionnaire/delete/{parentId}
+  controller: App\Controller\c_questionnaire::questionnaireDelete
+  requirements:
+      parentId: '\d+'
+
+#   Route par défault, elle correspont à la création de fichier XML
+xml-encoder:
+  path: /admin/xml/{parentId}
+  controller: App\Controller\c_toXml::creerXmlQuestionnaire
+  requirements:
+      parentId: '\d+'
+
+#   Route par défault, elle correspont à la partie download des fichier XML.
+download:
+  path: /admin/download/{file}
+  controller: App\Controller\c_toXml::download
+  requirements:
+    file: "[^/]+"

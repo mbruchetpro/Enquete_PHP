@@ -2,9 +2,14 @@
 
 {% block formAdd %}
         <div class="container-fluid">
-            <div class="row" style="height: 100px; background-color: ; padding: 20px;">
-                <h1>Créer</h1>
+
+            <div class="row " style="height: 80px; background-color: #b0bec5 ; padding: 20px;">
+                <div class="col-md-4"></div>
+                <h1 class="col-md-6">Créer</h1>
             </div>
+
+            <br>
+
             <div class="row">
                 <div class="col-md-4"></div>
                 {% if (form is defined ) %}
@@ -14,7 +19,9 @@
                     {{ form_end(form) }}
                 </div>
             </div>
+
             {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
             {% else %}
               <div class="alert col alert-danger" role="alert">
                 <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
@@ -24,12 +31,3 @@
         </div>
 {% endblock %}
 
-{% block javascripts %}
-    <script>
-/*        $(function () {
-            $.ajax(function () {
-
-            })
-        })*/
-    </script>
-{% endblock %}
