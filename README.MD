@@ -24,6 +24,18 @@ Puis veuillez rentrer cette commande :
 > composer install
 ````
 
+Puis mettez en place votre config server dans .env :
+
+Remplacez : 
+````
+DATABASE_URL='mysql://db_user:db_password@127.0.0.1:3306/db_name'
+````
+
+Par: 
+````
+DATABASE_URL='mysql://root:@127.0.0.1:3306/bd_questionnaire'
+````
+
 Si vous ne possédez pas la base de données liée au projet, exécutez : 
 
 ````
@@ -41,5 +53,12 @@ Vous devez lancer le server symfony :
 ````
 > php bin/console server:run
 ````
+
+## Outils de développement
+
+* [Symfony](https://symfony.com/) - Framework Symfony
+* [PHPSTORM] (https://www.jetbrains.com/phpstorm/) - IDE PHP
+
+
 
 ~ Maxime Bruchet
