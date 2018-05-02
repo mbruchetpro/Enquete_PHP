@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 02 mai 2018 à 11:55
+-- Généré le :  mer. 02 mai 2018 à 13:34
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `questionnaire_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_B6F7494ECE07E8FF` (`questionnaire_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `question`
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `questionnaire` (
   `display_name` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(124) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `questionnaire`
@@ -87,7 +87,7 @@ INSERT INTO `questionnaire` (`id`, `name`, `display_name`, `description`) VALUES
 -- Contraintes pour la table `question`
 --
 ALTER TABLE `question`
-  ADD CONSTRAINT `FK_B6F7494ECE07E8FF` FOREIGN KEY (`questionnaire_id`) REFERENCES `questionnaire` (`id`);
+  ADD CONSTRAINT `FK_B6F7494ECE07E8FF` FOREIGN KEY (`questionnaire_id`) REFERENCES `questionnaire` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

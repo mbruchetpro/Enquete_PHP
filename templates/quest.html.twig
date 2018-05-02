@@ -62,7 +62,7 @@
                                         <td>
                                             <a href="/admin/questionnaire/edit/{{ q.Id }}">
                                                 <button type="button" class="btn btn-info">
-                                                    <img class="mb-2" src="https://image.flaticon.com/icons/svg/61/61456.svg" alt="" width="20" height="20">
+                                                    Ajout Question{#<img class="mb-2" src="https://image.flaticon.com/icons/svg/61/61456.svg" alt="" width="20" height="20">#}
                                                 </button>
                                             </a>
                                             <a href="/admin/questionnaire/delete/{{ q.Id }}">
@@ -78,8 +78,8 @@
                         </div>
                     {% else %}
                         <div class="alert alert-danger" role="alert">
-                                Aucun questionnaire n'a été crée. Veuillez ajouter un questionnaire afin de les
-                            voir s'afficher ici.
+                               <h3>Aucun questionnaire n'a été crée. Veuillez ajouter un questionnaire afin de les
+                            voir s'afficher ici.</h3>
                         </div>
                     {% endif %}
                 <div class="row">
@@ -113,11 +113,9 @@
                     </div>
                 {% else %}
                     <div class="alert alert-danger" role="alert">
-                        Aucun questionnaire n'a été trouvé.
+                        <h3>Aucun questionnaire n'a été trouvé.</h3>
                     </div>
                 {% endif %}
-
-
             </div>
         </div>
 
