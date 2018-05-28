@@ -127,7 +127,6 @@ class c_questionnaire extends Controller
                 )
             );
         }
-
     }
 
     /*
@@ -176,7 +175,8 @@ class c_questionnaire extends Controller
                     'choices' => [
                         'Liste déroulantes' => "list",
                         'Liste à choix multiple' => "combo",
-                        'Zone de texte' => "text"
+                        'Zone de texte' => "text",
+                        'Radio bouton'  => "radio"
                     ],
                     'label' => 'Type de composant',
                 ]

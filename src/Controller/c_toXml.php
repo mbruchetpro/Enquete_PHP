@@ -98,8 +98,8 @@ class c_toXml extends Controller
                      * Version simple car \SimpleXMLElement($xml)
                      * teste s'il est présent ou non.
                      */
-                    $fileName = $questionnaireParent->getName().'.xml';
-
+                    $fileName = $questionnaireParent
+                            ->getName(). '(' .date('is'). ')' .'.xml';
                     /**
                      * Créer un nouveau fichier si existe.
                      */
