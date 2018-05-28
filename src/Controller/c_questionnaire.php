@@ -262,7 +262,8 @@ class c_questionnaire extends Controller
              * $reponse separe les différentes réponse entre elle
              * du textarea lors d'un passage à la ligne.
              */
-            $reponse = explode("\n", $questionData['reponse']);
+            //$reponse = explode("\n", $questionData['reponse']);
+            $reponse = preg_split("/[\s,]+/", $questionData['reponse']);
 
             /**
              * $rang le rang est défini par l'heure seconde et minute courante
